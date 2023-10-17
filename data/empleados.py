@@ -1,3 +1,5 @@
+import random as rd
+
 datosEmpleados=[
     {
         "id":1,
@@ -110,3 +112,17 @@ datosEmpleados=[
         "cargo": "Arquitecto"
     }
 ]
+
+encabezados = ['Id', 'Nombre', 'Apellido', 'Salario', 'Deudas', 'Retefuente', 'Edad',  'Correo', 'Telefono',  'Cargo']
+empleados = []
+for _ in range(50):
+    id = rd.randint(0, 100)
+    nombre = rd.choice(['Andres', 'Ana', 'Isabel', 'Pablo'])
+    apellido = rd.choice(['Carvajal', 'Arisizabal', '' ])
+    salario = rd.randint(1160000, 18000000)
+    cargo = rd.choice(['Desarrollador Junior', 'Desarrollador Intermedio', 'Arquitecto', 'Desarrollador Avanzado'])
+    edad = rd.randint(22, 60)
+    
+    empleado = [nombre, cargo, edad, salario]
+    empleados.append(empleado)
+print(empleados)
