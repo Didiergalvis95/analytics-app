@@ -1,128 +1,34 @@
 import random as rd
 
-datosEmpleados=[
-    {
-        "id":1,
-        "nombre":"Juan Jose",
-        "apellidos":"Gallego Mesa",
-        "salariomensual":15000000,
-        "deudas":True,
-        "retencionFuente":0.1,
-        "correo":"jjme@grupouribe.com",
-        "telefono":"3225962363",
-        "cargo":"Arquitecto"
-    },
-    {
-        "id": 2,
-        "nombre": "Didier Alexander",
-        "apellidos": "Gallego Mesa",
-        "salariomensual": 12000000,
-        "deudas": True,
-        "retencionFuente": 0.1,
-        "correo": "dag@email.com",
-        "telefono": "3567891233",
-        "cargo": "Arquitecto"
-    },
-    {
-        "id": 3,
-        "nombre": "Maria",
-        "apellidos": "Gomez Rodriguez",
-        "salariomensual": 1160000,
-        "deudas": False,
-        "retencionFuente": 0.0,
-        "correo": "maria@empresa.com",
-        "telefono": "3112345678",
-        "cargo": "Desarrollador Junior"
-    },
-    {
-        "id": 4,
-        "nombre": "Pedro",
-        "apellidos": "Lopez Perez",
-        "salariomensual": 1200000,
-        "deudas": True,
-        "retencionFuente": 0.0,
-        "correo": "pedro@empresa.com",
-        "telefono": "3156789012",
-        "cargo": "Desarrollador Intermedio"
-    },
-    {
-        "id": 5,
-        "nombre": "Luisa",
-        "apellidos": "Martinez Gomez",
-        "salariomensual": 14000000,
-        "deudas": False,
-        "retencionFuente": 0.1,
-        "correo": "luisa@empresa.com",
-        "telefono": "3101234567",
-        "cargo": "Desarrollador Avanzado"
-    },
-    {
-        "id": 6,
-        "nombre": "Ana",
-        "apellidos": "Perez Ramirez",
-        "salariomensual": 1680000,
-        "deudas": True,
-        "retencionFuente": 0.0,
-        "correo": "ana@empresa.com",
-        "telefono": "3145678901",
-        "cargo": "Arquitecto"
-    },
-    {
-        "id": 7,
-        "nombre": "Carlos",
-        "apellidos": "Rodriguez Lopez",
-        "salariomensual": 1100000,
-        "deudas": False,
-        "retencionFuente": 0.0,
-        "correo": "carlos@empresa.com",
-        "telefono": "3178901234",
-        "cargo": "Desarrollador Junior"
-    },
-    {
-        "id": 8,
-        "nombre": "Laura",
-        "apellidos": "Gomez Martinez",
-        "salariomensual": 1350000,
-        "deudas": True,
-        "retencionFuente": 0.0,
-        "correo": "laura@empresa.com",
-        "telefono": "3123456789",
-        "cargo": "Desarrollador Intermedio"
-    },
-    {
-        "id": 9,
-        "nombre": "Eduardo",
-        "apellidos": "Ramirez Rodriguez",
-        "salariomensual": 1500000,
-        "deudas": False,
-        "retencionFuente": 0.0,
-        "correo": "eduardo@empresa.com",
-        "telefono": "3190123456",
-        "cargo": "Desarrollador Avanzado"
-    },
-    {
-        "id": 10,
-        "nombre": "Sofia",
-        "apellidos": "Garcia Perez",
-        "salariomensual": 1740000,
-        "deudas": True,
-        "retencionFuente": 0.0,
-        "correo": "sofia@empresa.com",
-        "telefono": "3134567890",
-        "cargo": "Arquitecto"
-    }
+nombres = [
+    'Juan', 'María', 'Carlos', 'Laura', 'José', 'Ana', 'Pedro', 'Isabel',
+    'Luis', 'Sofía', 'Andrés', 'Lucía', 'Javier', 'Carmen', 'Miguel', 'Elena',
+    'Ricardo', 'Patricia', 'Fernando', 'Silvia'
+]
+apellidos = ['Carvajal Casillas', 'Arisizabal Florez', 'González Pérez', 'Rodríguez López',
+    'Martínez Sánchez', 'Fernández González', 'López Pérez', 'Díaz García',
+    'Hernández Rodríguez', 'Gómez Pérez', 'Pérez García', 'Sánchez López',
+    'Ramírez López', 'Torres Sánchez', 'Díaz Martínez', 'Fernández Pérez',
+    'Torres Rodríguez', 'Sánchez García', 'García Díaz', 'López González'
 ]
 
-encabezados = ['Id', 'Nombre', 'Apellido', 'Salario', 'Deudas', 'Retefuente', 'Edad',  'Correo', 'Telefono',  'Cargo']
+
+encabezadoEmpleados = ['Id', 'Nombre', 'Apellido', 'Salario', 'Deudas', 'Edad', 'Retefuente', 'Correo', 'Telefono',  'Cargo']
 empleados = []
-for _ in range(50):
+for _ in range(3000):
     id = rd.randint(0, 100)
-    nombre = rd.choice(['Andres', 'Ana', 'Isabel', 'Pablo'])
-    apellido = rd.choice(['Carvajal', 'Arisizabal', '' ])
+    nombre = rd.choice(nombres)
+    apellido = rd.choice(apellidos)
     salario = rd.randint(1160000, 18000000)
-    cargo = rd.choice(['Desarrollador Junior', 'Desarrollador Intermedio', 'Arquitecto', 'Desarrollador Avanzado'])
+    deudas = rd.choice([True, False])
+    retefuente = 1 if salario > 6000000 else 0
     edad = rd.randint(22, 60)
-    
-    empleado = [nombre, cargo, edad, salario]
+    correo = nombre+ str(edad)+"@correo.com"
+    numero_telefono = rd.randint(5469832605, 9681005893)
+    cargo = rd.choice(['Desarrollador Junior', 
+    'Desarrollador Intermedio', 
+    'Arquitecto', 
+    'Desarrollador Avanzado'
+    ])
+    empleado = [id, nombre, apellido, salario, deudas, edad, retefuente, correo, numero_telefono, cargo ]
     empleados.append(empleado)
-print(empleados)
