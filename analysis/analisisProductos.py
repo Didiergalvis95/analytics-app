@@ -12,5 +12,4 @@ filtroProductosDos = productosDataFrame.query("(Costo > 0) and (Costo < 150000)"
 
 totalproductos = filtroProductos[['Id', 'Nombre', 'Costo']]
 
-print(totalproductos)
 crearTabla(totalproductos, 'tablaFiltroProductos')
